@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import cors from "cors";
 import path from "path";
 
@@ -25,9 +25,9 @@ app.post("/signin", (req,res) => {
 
 app.get("/user", (req,res) => {
     const token = req.cookies.token;
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload;
     res.send({
-        userId: decoded.id;
+        userId: decoded.id
     })
 });
 
