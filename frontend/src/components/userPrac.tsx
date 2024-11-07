@@ -22,5 +22,6 @@ export const User = () => {
             })
         }}>Logout</button>
     </div>
-
 }
+
+// to be continued to next Auth
